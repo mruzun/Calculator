@@ -6,57 +6,51 @@ using System.Threading.Tasks;
 
 namespace Class_HesapMakinesi
 {
-    
-    class programokan
+    class Program
     {
         static void Main(string[] args)
         {
             VerileriAlma veri = new VerileriAlma();
-            veri.VeriAl();
             Yazdırma yaz = new Yazdırma();
-            yaz.Yazdir();
-            Console.ReadKey();
+            veri.VeriAl();
+            yaz.metod();
         }
     }
 
+    #region Sınıflar
     public class Islem
     {
+        Yazdırma yaz1;
         public static double sayi1;
         public static double sayi2;
         public ConsoleKeyInfo cki;
         public static double sonuc;
-        public double Hesapla(double a)
+        public void Hesapla(double a)
         {
             switch (cki.Key)
             {
                 case ConsoleKey.D1:
                 case ConsoleKey.NumPad1:
-                    Console.WriteLine("Sin Hesaplama");
                     sonuc = Math.Sin(a);
                     break;
                 case ConsoleKey.D2:
                 case ConsoleKey.NumPad2:
-                    Console.WriteLine("Cos Hesaplama");
                     sonuc = Math.Cos(a);
                     break;
                 case ConsoleKey.D3:
                 case ConsoleKey.NumPad3:
-                    Console.WriteLine("Tan Hesaplama");
                     sonuc = Math.Tan(a);
                     break;
                 case ConsoleKey.D4:
                 case ConsoleKey.NumPad4:
-                    Console.WriteLine("Karekök Hesaplama");
                     sonuc = Math.Sqrt(a);
                     break;
                 case ConsoleKey.D5:
                 case ConsoleKey.NumPad5:
-                    Console.WriteLine("Log Hesaplama");
                     sonuc = Math.Log(a);
                     break;
                 case ConsoleKey.D6:
                 case ConsoleKey.NumPad6:
-                    Console.WriteLine("10 üssü Hesaplama");
                     for (int i = 0; i < a; i++)
                     {
                         sonuc *= 10;
@@ -64,48 +58,45 @@ namespace Class_HesapMakinesi
                     break;
                 case ConsoleKey.D7:
                 case ConsoleKey.NumPad7:
-                    Console.WriteLine("Karesini Hesaplama");
                     sonuc = Math.Pow(a, 2);
                     break;
                 default:
                     break;
             }
-            return 0;
+            yaz1 = new Yazdırma();
+            yaz1.metod();
+            Console.ReadKey();
         }
-        public double Hesapla(double a, double b)
+        public void Hesapla(double a, double b)
         {
             switch (cki.Key)
             {
                 case ConsoleKey.D8:
                 case ConsoleKey.NumPad8:
-                    Console.WriteLine("Üssünü Hesaplama");
                     sonuc = Math.Pow(a, b);
                     break;
                 case ConsoleKey.D9:
                 case ConsoleKey.NumPad9:
-                    Console.WriteLine("Modunu Hesaplama");
                     sonuc = a % b;
                     break;
                 case ConsoleKey.Add:
-                    Console.WriteLine("Toplam Hesaplama");
                     sonuc = a + b;
                     break;
                 case ConsoleKey.Divide:
-                    Console.WriteLine("Bölüm Hesaplama");
                     sonuc = a / b;
                     break;
                 case ConsoleKey.Subtract:
-                    Console.WriteLine("Fark Hesaplama");
                     sonuc = a - b;
                     break;
                 case ConsoleKey.Multiply:
-                    Console.WriteLine("Çarpım Hesaplama");
                     sonuc = a * b;
                     break;
                 default:
                     break;
             }
-            return 0;
+            yaz1 = new Yazdırma();
+            yaz1.metod();
+            Console.ReadKey();
         }
     }
     public class BilimselIslemler:Islem
@@ -170,9 +161,10 @@ namespace Class_HesapMakinesi
     }
     public class Yazdırma:Islem
     {
-        public void Yazdir()
+        public void metod()
         {
             Console.WriteLine("Sonuc: {0}",sonuc);
         }
     }
+    #endregion
 }
