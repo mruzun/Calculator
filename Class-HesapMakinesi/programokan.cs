@@ -12,9 +12,10 @@ namespace Class_HesapMakinesi
         static void Main(string[] args)
         {
             VerileriAlma veri = new VerileriAlma();
-            Yazdırma yaz = new Yazdırma();
             veri.VeriAl();
-            yaz.metod();
+            Yazdırma yaz = new Yazdırma();
+            yaz.Yazdir();
+            Console.ReadKey();
         }
     }
 
@@ -30,26 +31,32 @@ namespace Class_HesapMakinesi
             {
                 case ConsoleKey.D1:
                 case ConsoleKey.NumPad1:
+                    Console.WriteLine("Sin Hesaplama");
                     sonuc = Math.Sin(a);
                     break;
                 case ConsoleKey.D2:
                 case ConsoleKey.NumPad2:
+                    Console.WriteLine("Cos Hesaplama");
                     sonuc = Math.Cos(a);
                     break;
                 case ConsoleKey.D3:
                 case ConsoleKey.NumPad3:
+                    Console.WriteLine("Tan Hesaplama");
                     sonuc = Math.Tan(a);
                     break;
                 case ConsoleKey.D4:
                 case ConsoleKey.NumPad4:
+                    Console.WriteLine("Karekök Hesaplama");
                     sonuc = Math.Sqrt(a);
                     break;
                 case ConsoleKey.D5:
                 case ConsoleKey.NumPad5:
+                    Console.WriteLine("Log Hesaplama");
                     sonuc = Math.Log(a);
                     break;
                 case ConsoleKey.D6:
                 case ConsoleKey.NumPad6:
+                    Console.WriteLine("10 üssü Hesaplama");
                     for (int i = 0; i < a; i++)
                     {
                         sonuc *= 10;
@@ -57,6 +64,7 @@ namespace Class_HesapMakinesi
                     break;
                 case ConsoleKey.D7:
                 case ConsoleKey.NumPad7:
+                    Console.WriteLine("Karesini Hesaplama");
                     sonuc = Math.Pow(a, 2);
                     break;
                 default:
@@ -70,22 +78,28 @@ namespace Class_HesapMakinesi
             {
                 case ConsoleKey.D8:
                 case ConsoleKey.NumPad8:
+                    Console.WriteLine("Üssünü Hesaplama");
                     sonuc = Math.Pow(a, b);
                     break;
                 case ConsoleKey.D9:
                 case ConsoleKey.NumPad9:
+                    Console.WriteLine("Modunu Hesaplama");
                     sonuc = a % b;
                     break;
                 case ConsoleKey.Add:
+                    Console.WriteLine("Toplam Hesaplama");
                     sonuc = a + b;
                     break;
                 case ConsoleKey.Divide:
+                    Console.WriteLine("Bölüm Hesaplama");
                     sonuc = a / b;
                     break;
                 case ConsoleKey.Subtract:
+                    Console.WriteLine("Fark Hesaplama");
                     sonuc = a - b;
                     break;
                 case ConsoleKey.Multiply:
+                    Console.WriteLine("Çarpım Hesaplama");
                     sonuc = a * b;
                     break;
                 default:
@@ -156,7 +170,7 @@ namespace Class_HesapMakinesi
     }
     public class Yazdırma:Islem
     {
-        public void metod()
+        public void Yazdir()
         {
             Console.WriteLine("Sonuc: {0}",sonuc);
         }
